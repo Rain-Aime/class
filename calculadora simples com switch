@@ -1,0 +1,25 @@
+<?php
+
+$num1;
+$num2;
+$operador;
+fscanf(STDIN, "%d\n", $num1);
+fscanf(STDIN, "%d\n", $num2);
+fscanf(STDIN, "%d\n", $operador);
+    switch ($operador){
+        case 1:
+            echo $num1 + $num2;
+            break;
+        case 2:
+            echo $num1 - $num2;
+            break;
+        case 3:
+            echo $num1 * $num2;
+            break;
+        case 4:
+            echo $num1 / $num2;
+            break;
+        case 5:
+            echo $num1 % $num2;
+            break;
+    }
