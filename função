@@ -1,0 +1,14 @@
+<?php
+class Produto{
+    public $nome;
+    public $preco;
+    public $quantidade;
+    public function calcularTotal(){
+    echo "Quantidade em estoque:", ($this->quantidade), "\n", "Preço em R$", ($this->preco);
+    }
+}
+$cartinha = new Produto();
+$cartinha->nome = 'Odd-Eyes';
+$cartinha->preco = 5.50;
+$cartinha->quantidade = 3;
+$cartinha->calcularTotal();
