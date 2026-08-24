@@ -1,0 +1,38 @@
+<?php
+class Aluno {
+    private $nome;
+    public $nota = array(1, 2, 3);
+    public function __construct($nome, array $nota = []){
+        $this->nome = $nome;
+        $this->nota = $nota;
+    }
+    public function adicionarNota(float $novanota): void {
+        if ($novanota >= 0.0){
+            $this->nota[] = $novanota;
+            echo "Nota {$novanota} adicionada";
+        }
+        else{
+            echo "nota invalida";
+        }
+    }
+    public function calcularmedia(): float{
+        if (count($this->nota) === 0){
+            return 0.0;
+        }
+        return array_sum ($this->nota) / count($this->nota);
+    }
+    public function isAprovado(float $mediaminima): bool{
+        $mediaatual = $this->calcularmedia();
+        return $mediaatual >= $mediaminima;
+    }
+}
+$test = new Aluno("test", [1.0 , 8.5]);
+$test->adicionarNota(9.0);
+$mediafinal = $test-> calcularmedia();
+echo "Media Final: ", $mediafinal, "\n";
+if($test->isAprovado(7.0)){
+    echo "Aluno Aprovado";
+}
+else{
+    echo "Aluno Reprovado";
+}
