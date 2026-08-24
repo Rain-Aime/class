@@ -1,7 +1,7 @@
 <?php
 class Aluno {
     private $nome;
-    public $nota = array(1, 2, 3);
+    private $nota = array(1, 2, 3);
     public function __construct($nome, array $nota = []){
         $this->nome = $nome;
         $this->nota = $nota;
