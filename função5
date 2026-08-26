@@ -1,0 +1,12 @@
+<?php
+class AcessoSistema {
+    private static int $totalAcess = 0;
+    public function __construct(public int $contador){
+        self::$totalAcess = $contador;
+    }
+    public function getAcessTotal(){
+        return self::$totalAcess++;
+    }
+}
+$test = new AcessoSistema(1);
+echo $test->getAcessTotal(), " acesso no total!";
