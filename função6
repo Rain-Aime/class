@@ -1,0 +1,27 @@
+<?php
+class Livro{
+    public $titulo, $autor;
+    public bool $disponivel = true;
+    public function emprestar(){
+        if($this->disponivel == true){
+            echo "Livro pode ser emprestado";
+            $this->disponivel = false;
+        }
+        else{
+            echo "Não pode ser emprestado";
+        }
+    }
+    public function devolver(){
+       if($this->disponivel == false){
+           echo "Livro devolvido";
+           $this->disponivel = true;
+       }
+       else{
+           echo "Livro não foi emprestado";
+       }
+    }
+}
+$test = new Livro('50 Linguagens de programção', 'Não lembro o nome dela');
+echo "Disponivel? ", $test->emprestar(), "\n";
+echo "Disponivel? ", $test->emprestar(), "\n";
+echo "Fazendo devolução. . . ", $test->devolver(), "\n";
