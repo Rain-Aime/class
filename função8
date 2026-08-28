@@ -1,0 +1,28 @@
+<?php
+abstract class MetododePagamento{
+    protected $valor;
+    public function __construct(float $valor){
+        $this->valor = $valor;
+    }
+    abstract public function processar(): bool;
+}
+class CartaoCredito extends MetododePagamento{
+    public function processar(): bool{
+        $valordesconto = ($this->valor + 2) / 100;
+        $valorTotal = $this->valor + $valordesconto;
+        echo "Pagamento no valor de R$ ($valorTotal), realizado com sucesso\n";
+        return true;
+    }
+}
+class Pix extends MetododePagamento{
+    public function processar(): bool{
+        $valordesconto = ($this->valor * 5) / 100;
+        $valorTotal = $this->valor - $valordesconto;
+        echo "Pagamento no valor de R$ ($valorTotal), realizado com sucesso\n";
+        return true;
+    }
+}
+$test = new Pix(100.00);
+$test->processar();
+$test2 = new CartaoCredito(100.00);
+$test2->processar();
