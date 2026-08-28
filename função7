@@ -1,0 +1,17 @@
+<?php
+class Funcionario{
+    protected $salariobase = 54.70;
+    public function calcularSalario($dias){
+        return $this->salariobase * $dias;
+    }
+}
+class Gerente extends Funcionario{
+    #[\Override]
+    public function calcularSalario($dias){
+        return $this->salariobase * $dias * 1.5;
+    }
+}
+$test = new funcionario();
+echo $test->calcularSalario(), "\n";
+$test2 = new Gerente();
+echo $test2->calcularSalario(), "\n";
